@@ -13,9 +13,8 @@ def roman_to_int(roman_string):
     if not roman_string or not isinstance(roman_string, str):
         return result
     for i in range(0, len(roman_string)):
-        if i == len(roman_string) - 1:
-            result += roman_val[roman_string[i]]
-        elif roman_val[roman_string[i]] >= roman_val[roman_string[i+1]]:
+        if (i == len(roman_string) - 1 or
+            roman_val[roman_string[i]] >= roman_val[roman_string[i+1]]):
             result += roman_val[roman_string[i]]
         else:
             result -= roman_val[roman_string[i]]
