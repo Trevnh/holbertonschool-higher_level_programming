@@ -9,5 +9,5 @@ def text_indentation(text):
     for char in ".?:":
         text = text.replace(char, char + "\n\n")
     text = text.replace("\n ", "\n")
-    text = text.strip()
-    print("{}\n".format(text))
+    text = text.strip(" \t")
+    print("{}".format(text), end="")
