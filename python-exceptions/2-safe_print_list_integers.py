@@ -11,4 +11,4 @@ def safe_print_list_integers(my_list=[], x=0):
             skip += 1
             pass
     print()
-    return(length - skip)
+    return (length - skip)
