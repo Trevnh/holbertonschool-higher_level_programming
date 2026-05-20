@@ -13,4 +13,4 @@ class Square():
         self.__size = size
     def area(self):
         """Returns the area of a square based on its size"""
-        return self.__size ** 2
+        return self.__size * self.__size
