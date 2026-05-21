@@ -52,11 +52,10 @@ class Rectangle():
 
     def __str__(self):
         """Prints the Rectangle with #s"""
-        row = "#" * self.__width + "\n"
-        last_row = "#" * self.__width
-        if self.__height > 1:
-            return (row * (self.__height - 1) + last_row)
-        elif self.__height == 1:
-            return last_row
-        else:
-            return
+        square = ""
+        for row in range(self.__height):
+            if row != self.__height - 1:
+                square += ("#" * self.__width + "\n")
+            else:
+                square += ("#" * self.__width)
+        return square
