@@ -54,4 +54,9 @@ class Rectangle():
         """Prints the Rectangle with #s"""
         row = "#" * self.__width + "\n"
         last_row = "#" * self.__width
-        return (row * (self.__height - 1) + last_row)
+        if self.__height > 1:
+            return (row * (self.__height - 1) + last_row)
+        elif self.__height == 1:
+            return last_row
+        else:
+            return
