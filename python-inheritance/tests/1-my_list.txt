@@ -7,7 +7,6 @@
 
 >>> test1.print_sorted()
 [3, 4, 7, 8, 10]
-[3, 4, 7, 8, 10]
 
 >>> test1.append(5)
 
@@ -21,12 +20,10 @@
 
 >>> test2.print_sorted()
 [1, 2, 3, 4, 5]
-[1, 2, 3, 4, 5]
 
 >>> test_empty = MyList()
 
 >>> test_empty.print_sorted()
-[]
 []
 
 >>> test_negative = MyList([1, 2, 3, 4, -5])
@@ -35,5 +32,4 @@
 [1, 2, 3, 4, -5]
 
 >>> test_negative.print_sorted()
-[-5, 1, 2, 3, 4]
 [-5, 1, 2, 3, 4]
