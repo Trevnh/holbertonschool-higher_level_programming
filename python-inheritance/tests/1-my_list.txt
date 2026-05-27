@@ -1,0 +1,27 @@
+>>> MyList = __import__('1-my_list').MyList
+
+>>> test1 = MyList([3, 7, 4, 10, 8])
+
+>>> test1
+[3, 7, 4, 10, 8]
+
+>>> test1.print_sorted()
+[3, 4, 7, 8, 10]
+
+>>> test2 = MyList([1, 2, 3, 4, 5])
+
+>>> test2.print_sorted()
+[1, 2, 3, 4, 5]
+
+>>> test_empty = MyList()
+
+>>> test_empty.print_sorted()
+[]
+
+>>> test_negative = MyList([1, 2, 3, 4, -5])
+
+>>> test_negative
+[1, 2, 3, 4, -5]
+
+>>> test_negative.print_sorted()
+[-5, 1, 2, 3, 4]
