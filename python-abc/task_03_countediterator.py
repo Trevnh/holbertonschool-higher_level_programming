@@ -6,7 +6,7 @@ class CountedIterator():
     """Counted Iterator class"""
     def __init__(self, iterable):
         """Initialise the iterator and count to 0"""
-        self.iterator = iter.(iterable)
+        self.iterator = iter(iterable)
         self.count = 0
 
     def get_count():
