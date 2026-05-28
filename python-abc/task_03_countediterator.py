@@ -9,7 +9,7 @@ class CountedIterator():
         self.iterator = iter(iterable)
         self.count = 0
 
-    def get_count():
+    def get_count(self):
         """Return the count"""
         return self.count
 
