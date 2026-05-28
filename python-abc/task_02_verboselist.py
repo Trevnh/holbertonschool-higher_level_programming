@@ -22,4 +22,4 @@ class VerboseList(list):
     def pop(self, idx=-1):
         """Pops item at given index from the list"""
         print(f"Popped [{self[idx]}] from the list.")
-        super().pop(idx)
+        return super().pop(idx)
