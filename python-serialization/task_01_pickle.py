@@ -4,7 +4,7 @@
 import pickle
 
 
-class CustomObject():
+class CustomObject:
     """Custom Object class"""
 
     def __init__(self, name, age, is_student):
