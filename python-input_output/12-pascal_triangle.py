@@ -10,7 +10,7 @@ def pascal_triangle(n):
     for i in range(n):
         current = [1]
         for j in range(1, i):
-                current.append(p_tri[i - 1][j - 1] + p_tri[i - 1][j])
+            current.append(p_tri[i - 1][j - 1] + p_tri[i - 1][j])
         if i != 0:
             current.append(1)
         p_tri.append(current)
