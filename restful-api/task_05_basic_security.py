@@ -31,6 +31,15 @@ users = {
 }
 
 
+@auth.verify_password
+def verify_password(username, password):
+    """Verify username and password with Basic Auth"""
+    if username in users:
+        if check_password_hash(users[username]["password"], password):
+            return username
+    return None
+
+
 @jwt.unauthorized_loader
 def handle_unauthorized_loader(err):
     """Handler for missing or invalid tokens"""
