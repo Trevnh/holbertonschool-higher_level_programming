@@ -20,4 +20,3 @@ if __name__ == "__main__":
     state = session.query(State).first()
     for state in session.query(State).filter(State.name.like('%a%')):
         print(f"{state.id}: {state.name}")
-
