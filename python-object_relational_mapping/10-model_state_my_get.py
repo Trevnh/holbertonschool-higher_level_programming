@@ -4,6 +4,7 @@
 import sys
 from model_state import Base, State
 from sqlalchemy import (create_engine)
+from sqlalchemy import func
 from sqlalchemy.orm import sessionmaker
 
 
@@ -17,8 +18,8 @@ if __name__ == "__main__":
 
     Session = sessionmaker(engine)
     session = Session()
-    get = f"%{sys.argv[4]}%"
-    state = session.query(State).filter(State.name.like(get)).first()
+    get = f"{sys.argv[4]}"
+    state = session.query(State).filter(State.name==func.binary(get)).first()
     if state is not None:
         print(f"{state.id}")
     else:
