@@ -1,7 +1,8 @@
 #!/usr/bin/python3
 """Module for Filtering states that start with N"""
 
-import MySQLdb, sys
+import MySQLdb
+import sys
 
 
 if __name__ == "__main__":
@@ -14,7 +15,11 @@ if __name__ == "__main__":
         charset="utf8"
     )
     cur = conn.cursor()
-    cur.execute("SELECT id, name FROM states WHERE name LIKE 'N%' ORDER BY id ASC")
+    cur.execute(
+        "SELECT id, name"
+        " FROM states WHERE name LIKE 'N%' "
+        "ORDER BY id ASC"
+    )
     query_rows = cur.fetchall()
     for row in query_rows:
         print(row)
