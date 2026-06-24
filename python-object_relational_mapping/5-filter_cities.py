@@ -26,7 +26,7 @@ if __name__ == "__main__":
         'state': sys.argv[4]
     })
     query_rows = cur.fetchall()
-    cities_list = [row[0] for row in query_rows]    
+    cities_list = [row[0] for row in query_rows]
     print(', '.join(cities_list))
     cur.close()
     conn.close()
