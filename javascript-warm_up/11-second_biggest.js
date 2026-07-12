@@ -4,7 +4,7 @@ let biggest = -Infinity;
 let secondBiggest = -Infinity;
 
 for (let i = 2; i < process.argv.length; i++) {
-  let current = parseInt(process.argv[i]);
+  const current = parseInt(process.argv[i]);
 
   if (current > biggest) {
     secondBiggest = biggest;
