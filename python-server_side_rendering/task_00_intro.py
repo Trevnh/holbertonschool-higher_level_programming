@@ -11,6 +11,7 @@ def generate_invitations(template, attendees):
     if (not isinstance(attendees, list)
             or not all(isinstance(x, dict) for x in attendees)):
         print("Data provided is not a list of dicts, no output files generated.")
+        return
     if not template:
         print("Template is empty, no output files generated.")
         return
@@ -32,6 +33,10 @@ def generate_invitations(template, attendees):
             key = f"{{{key}}}"
             text = text.replace(key, value)
 
-        if not os.path.exists(filename):
+        try:
+            if os.path.exists(filename):
+                print(f"{filename} already exists.")
             with open(filename, "w", encoding="utf-8") as file:
                 file.write(text)
+        except Exception as e:
+            raise Exception(e)
