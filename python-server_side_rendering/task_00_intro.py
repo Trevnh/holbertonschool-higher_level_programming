@@ -30,8 +30,7 @@ def generate_invitations(template, attendees):
                     raise KeyError
             except KeyError:
                 person[key] = "N/A"
-            key = f"{{{person[key]}}}"
-            text = text.replace(key, person[key])
+            text = text.replace(f"{{{person[key]}}}", person[key])
 
         try:
             if os.path.exists(filename):
