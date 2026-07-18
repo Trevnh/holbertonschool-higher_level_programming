@@ -25,8 +25,8 @@ def read_csv_file(filename):
 @app.route('/products')
 def products():
     """Display products from given data sources"""
-    source = request.args.get('source')
-    product_id = request.args.get('id')
+    source = request.args.get("source")
+    product_id = request.args.get("id")
 
     if source == 'json':
         product_list = read_json_file("products.json")
@@ -48,6 +48,11 @@ def products():
                 error='Product not found',
                 products=[]
             )
+        
+        product_list = [
+            product for product in product_list
+            if product["id"] == product_id
+        ]
 
         if not product_list:
             return render_template(
