@@ -27,8 +27,8 @@ def generate_invitations(template, attendees):
         for key in person:
             try:
                 if person[key] is None:
-                    raise ValueError
-            except ValueError:
+                    raise KeyError
+            except KeyError:
                 person[key] = "N/A"
             key = f"{{{person[key]}}}"
             text = text.replace(key, person[key])
