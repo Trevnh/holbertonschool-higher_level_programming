@@ -25,16 +25,14 @@ def generate_invitations(template, attendees):
         filename = f"output_{i}.txt"
         text = template
         for key in person:
-            try:
-                if person[key] is None:
-                    raise KeyError
-            except KeyError:
+            if person[key] is None:
                 person[key] = "N/A"
             text = text.replace(f"{{{key}}}", person[key])
 
         try:
             if os.path.exists(filename):
                 print(f"{filename} already exists.")
+                continue
             with open(filename, "w", encoding="utf-8") as file:
                 file.write(text)
         except Exception as e:
