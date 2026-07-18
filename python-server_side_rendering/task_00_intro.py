@@ -24,13 +24,16 @@ def generate_invitations(template, attendees):
         i += 1
         filename = f"output_{i}.txt"
         text = template
-        for key in person:
+        keys = ["name", "event_title", "event_date", "event_location"]
+        for key in keys:
             try:
-                if person[key] is None:
+                j = person[key]
+                if j is None:
                     raise KeyError
             except KeyError:
                 person[key] = "N/A"
             text = text.replace(f"{{{person[key]}}}", person[key])
+            print(person[key])
 
         try:
             if os.path.exists(filename):
