@@ -19,15 +19,26 @@ def generate_invitations(template, attendees):
         print("No data provided, no output files generated.")
         return
 
+    keys = [
+        "name",
+        "event_title",
+        "event_date",
+        "event_location"
+    ]
+
     i = 0
     for person in attendees:
         i += 1
         filename = f"output_{i}.txt"
         text = template
-        for key in person:
-            if person[key] is None:
-                person[key] = "N/A"
-            text = text.replace(f"{{{key}}}", person[key])
+        for key in keys:
+            value = person.get(key)
+            if value is None:
+                value = "N/A"
+            text = text.replace(
+                "{" + key + "}",
+                str(value)
+            )
 
         try:
             if os.path.exists(filename):
@@ -36,4 +47,4 @@ def generate_invitations(template, attendees):
             with open(filename, "w", encoding="utf-8") as file:
                 file.write(text)
         except Exception as e:
-            raise Exception(e)
+            print(f"Error writing {filename}: {e}")
