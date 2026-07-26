@@ -112,6 +112,27 @@ Possible Output:
 
 Although we use "x += 1" to attempt to change the object, it instead creates a new object.
 
+Sometimes immutable objects can contain mutable objects within them. In these cases they can kind of change. Such as a tuple containing a list and having that list modified.
+
+```Python
+a = [1, 2]
+b = (a, 5)
+
+print(b)
+
+a.append(3)
+
+print(b)
+```
+
+```python
+([1, 2], 5)
+
+([1, 2, 3), 5)
+```
+
+
+
 ---
 
 ## Why does mutability matter?
@@ -208,3 +229,9 @@ Output:
 ```
 
 In this case although n was reassigned to v in the function, the original object l1 was unaffected since only the local reference to it was changed.
+
+## CPython
+
+CPython has some differences like the previously mentioned memory address for  Id. CPython also pre-allocates -5 to 256 when it starts so they are created and stored in memory.
+
+These preallocations are used in NSMALLPOSINTS and NSMALLNEGINTS. These are used to save memory. They were chosen as they are the most commonly used integers.
